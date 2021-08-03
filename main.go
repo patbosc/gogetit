@@ -4,22 +4,20 @@ import (
 	"encoding/json"
 	"log"
 	"net/http"
+	"time"
 
 	"github.com/gocolly/colly"
 )
-
-func ping(w http.ResponseWriter, r *http.Request) {
-	log.Println("Ping")
-	w.Write([]byte("ping"))
-}
 
 func main() {
 
 	// create a service to listen on port 7272
 	addr := ":7272"
 
+	//registerd functions
 	http.HandleFunc("/search", getIt)
 	http.HandleFunc("/ping", ping)
+	http.HandleFunc("/datetime", datetime)
 
 	log.Println("listening on", addr)
 	log.Fatal(http.ListenAndServe(addr, nil))
@@ -60,4 +58,14 @@ func getIt(w http.ResponseWriter, r *http.Request) {
 	//Add some header and write the body
 	w.Header().Add("Content-Type", "application/json")
 	w.Write(b)
+}
+
+func ping(w http.ResponseWriter, r *http.Request) {
+	log.Println("Ping")
+	w.Write([]byte("ping"))
+}
+
+func datetime(w http.ResponseWriter, r *http.Request) {
+	log.Println("datetime")
+	w.Write([]byte(time.Now().String()))
 }
