@@ -15,7 +15,7 @@ func ping(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 
-	// create a service to listen on port 7777
+	// create a service to listen on port 7272
 	addr := ":7272"
 
 	http.HandleFunc("/search", getIt)
