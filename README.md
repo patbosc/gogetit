@@ -33,3 +33,6 @@ Check out this stuff as well:
 --
 - https://github.com/el10savio/GoCrawler
 - http://go-colly.org/
+
+I found this during my research and simply love it. 
+- https://goclone.imthaghost.dev/ 
